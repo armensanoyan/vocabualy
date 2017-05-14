@@ -1,0 +1,19 @@
+.words {
+	display: flex;
+	flex-direction: column;	
+}
+
+.text {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.input {
+	flex-grow: 1;
+}
+
+#meaning {
+	flex-grow: 10;
+	}
+

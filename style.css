@@ -1,0 +1,47 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: yellow;
+	font-size: 20px
+}
+
+.header {
+	background-color: wheat;
+	height: 50px;
+	width: 100%;
+	margin: 0; 
+	border: 0;
+	padding: 0px;	
+}
+
+.lets {
+	margin: 0;
+	padding: 10px;
+	padding-left: 50px;
+	font-size: 30px;
+}
+
+.words {
+	background-color: aquamarine;
+	padding: 5px;
+	border-radius: 10px;
+
+}
+
+.word {
+	padding: 5px;
+	margin: 5px;
+	background-color: bisque;
+	border-radius: 10px;
+}
+
+.input {
+	height: 30px;
+	border: 30px;
+	border-radius: 7px;
+	font-size: 20px; 
+	margin: 5px;
+}
+.submit {
+	background-color: blueviolet;
+}
