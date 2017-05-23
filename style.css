@@ -1,12 +1,13 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-color: yellow;
-	font-size: 20px
+	Background-color: antiquewhite;
+	font-size: 20px;
+	font-family: Arial, Helvetica, sans-serif
 }
 
 .header {
-	background-color: wheat;
+	background-color: cornflowerblue;
 	height: 50px;
 	width: 100%;
 	margin: 0; 
@@ -19,13 +20,16 @@ body {
 	padding: 10px;
 	padding-left: 50px;
 	font-size: 30px;
+	text-decoration: none;
 }
 
 .words {
-	background-color: aquamarine;
-	padding: 5px;
+	background-color: lightgray;
+	padding: 0px;
+	margin: 0;
 	border-radius: 10px;
-
+	overflow-y: auto;
+	height: 593px;
 }
 
 .word {
@@ -40,8 +44,56 @@ body {
 	border: 30px;
 	border-radius: 7px;
 	font-size: 20px; 
-	margin: 5px;
+	margin: 10px;
 }
 .submit {
 	background-color: blueviolet;
+}
+li {
+	Display: inline-block;
+}
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: auto;
+    text-decoration: none;
+    text-decoration-line: none;
+}
+/*.pclass {
+	color: yellow;
+	background-color: crimson; 
+	margin: 5px;
+	border: 5px solid black;
+}*/
+#mydiv {
+	padding: 8ps;
+	margin: 7px;
+	border: 3px solid yellow;
+	border-radius: 5px;
+}
+#dd1 {
+	/*float: left;*/
+	display: inline-block;
+	border: 2px solid blue;
+	border-radius: 4px;
+	width: 20%;
+	margin: 5px;
+	overflow: auto;
+}
+#dd2 {
+	display: inline-block;
+	border: 2px solid blue;
+	border-radius: 4px;
+	width: 70%;
+	margin: 5px;
+	overflow: auto;
+	}
+#mydl {
+		overflow-y: scroll;
+		height: 550;
+		margin: 0;
+		padding: 5px;
+	}
+#logout{
+	margin: 2px;
+	padding: 2px;
 }

@@ -5,26 +5,42 @@
 	<link rel="icon" href="favicon.ico">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="flexbox.css">
+	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 </head>
+
 <body>
 
-	<div class="header">
-		<p class="lets"><i>Lets enlarge vocabulary</i></p>
+	<!--<nav class="nav">
+		<ul>
+			<li><a href="#auth" onclick="return show('auth','vocBody');">Authentication</a></li>
+			<li><a href="#vocBody" onclick="return show('vocBody','auth');">Vocabulary</a></li>
+		</ul>
+	</nav>-->
+
+	<div id="auth">
+		<input id="email" class="input" placeholder="email" type="text">
+		<input id="password" class="input" placeholder="password" type="password">
+		<input id="login" class="input" value="Log In" type="button" >
+		<input id="signup" class="input" value="Sign Up" type="button" >
 	</div>
 
-	<div class="words">
-		<!--<div class="word">word1</div>-->
-		<!--<div class="word">word2</div>-->
-		<!--<div class="word">word3</div>-->
-		<!--<div class="word">word4</div>-->
-		<dl id="mydl">
-			<dt>List of words</dt>
-		</dl>
-	<div>
-		<div class="text">
-			<input id="newWord" class="input" type="text" >
-			<input id="meaning" class="input" type="text" >
-			<input id="button" class="input" type="submit">
+	<div id="vocBody">
+		<div class="header">
+			<p class="lets"><i>Lets enlarge our vocabulary</i></p>
 		</div>
-	<script type="text/javascript" src="app.js"></script>
+		<input id="logout" class="input" value="Log Out" type="button">
+		<div class="words">
+			<dl id="mydl">
+				<dt>List of words</dt>
+			</dl>
+		<div>
+			<div class="text">
+				<input id="newWord" class="input" type="text" >
+				<input id="meaning" class="input" type="text" >
+				<input id="button" class="input" type="submit">
+			</div>
+		</div>
+	</div>
+	
+		<script type="text/javascript" src="app.js"></script>
 </body>
