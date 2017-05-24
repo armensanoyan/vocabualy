@@ -6,6 +6,8 @@ const auth = document.getElementById('auth');
 const vocBody = document.getElementById('vocBody');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
+const textbox = document.getElementById('textbox');
+const butt = document.createElement('INPUT');
 
  	var config = {
     apiKey: "AIzaSyCEXwgrI0meq1QQeDQeh14ZrMxcx1t-OWI",
@@ -20,29 +22,35 @@ const password = document.getElementById('password');
 	fireVoc.on('value', snap => {
 
 		if(snap.val() != null ) {
-
 			vocabulary = snap.val();
 		} else {
 			console.log('typeof snap.val',typeof snap.val());
 			console.log('snap.val:',snap.val());
 		}
 			console.log(vocabulary)
-		for(let i = 0; i < vocabulary.length; i++) {
-			console.log('BLYA!!!')
-
 			const dl = document.getElementById('mydl');
+		for(let i = 0; i < vocabulary.length; i++) {
+			const dd = document.createElement('DD');
 			const dd1 = document.createElement('DD');
 			const dd2 = document.createElement('DD');
-			const br = document.createElement('BR');
+			// const br = document.createElement('BR');
 			const text1 = document.createTextNode(vocabulary[i].myword);
 			const text2 = document.createTextNode(vocabulary[i].explain);
 			dd1.id = 'dd1';
 			dd2.id = 'dd2';
 			dd1.appendChild(text1);
 			dd2.appendChild(text2);
-			dd2.appendChild(br);
-			dl.appendChild(dd1);
-			dl.appendChild(dd2);
+			// dd2.appendChild(br);
+			dd.appendChild(dd1);
+			dd.appendChild(dd2);
+			dl.appendChild(dd);
+			
+			dd1.onclick = () => {
+				insideTextBox(dd);
+			}
+			dd2.onclick = () => {
+				insideTextBox(dd);
+			}
 		}
 	})
 
@@ -62,7 +70,7 @@ const password = document.getElementById('password');
 			console.log('then in login')
 			email.value = '';
 			password.value = '';
-			show(vocBody, auth);
+			show(vocBody, auth, textbox);
 		})
 		.catch(e => {
 			alert(e.message);
@@ -82,7 +90,7 @@ const password = document.getElementById('password');
 			console.log('then in signup')
 			email.value = '';
 			password.value = '';
-			show(vocBody, auth);
+			show(vocBody, auth, textbox);
 		})
 		.catch(e => {
 			console.log(e.message)
@@ -92,25 +100,26 @@ const password = document.getElementById('password');
 
 	logout.addEventListener('click', e => {
 		firebase.auth().signOut();
-		show(auth, vocBody);
+		show(auth, vocBody, textbox);
 	})
 
 	firebase.auth().onAuthStateChanged(firebaseUser => {
 		if(firebaseUser) {
 			areUserAuthenticated = true;
 			// console.log(firebaseUser);
-			show(vocBody,auth);
+			show(vocBody, auth, textbox);
 
 		} else {
 			areUserAuthenticated = false;
 			console.log('not logged In');
-			show(auth,vocBody);
+			show(auth, vocBody, textbox);
 		}
 	});
 
-function show(shown, hidden) {
+function show(shown, hidden, hiddenAgain) {
 	shown.style.display='block';
 	hidden.style.display='none';
+	hiddenAgain.style.display='none';
 } 
 
 let inp = document.getElementById('newWord');
@@ -131,10 +140,10 @@ mean.addEventListener('change', () => {
 
 button.addEventListener('click', () => {
 
-if(meaning === '' || word === '') {
-	alert('please check the word and explanation!');
-	return
-}
+	if(meaning === '' || word === '') {
+		alert('please check the word and explanation!');
+		return
+	}
 
 	let couple = {
 		explain: meaning,
@@ -149,3 +158,24 @@ if(meaning === '' || word === '') {
 	document.getElementById('meaning').value = '';
 	document.getElementById('newWord').value = '';
 })
+
+function insideTextBox(dd) {
+	show(textbox, vocBody, auth);
+	
+	textbox.appendChild(butt);
+	
+	butt.setAttribute("type","button");
+	butt.setAttribute("value","Back");
+	butt.className = 'input';
+
+	butt.onclick = () => {
+		show(vocBody, auth, textbox);
+		ddInsideTextbox.remove(ddInsideTextbox.lastChild);
+		console.log(textbox);
+	}
+
+	const ddInsideTextbox = document.createElement('H1');
+	console.log(dd);
+	ddInsideTextbox.appendChild(dd);
+	textbox.appendChild(ddInsideTextbox);
+}
